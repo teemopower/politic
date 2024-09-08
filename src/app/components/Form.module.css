@@ -18,10 +18,26 @@
 .submit-btn {
     margin-top: 25px;
     background-color: rgb(218, 234, 255);
-    color: black;
     border-radius: 5px;
     height: 40px;
     font-size: 18px;
+    color: black;
+    border: none; 
+    padding: 10px 20px; 
+    font-size: 16px; 
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background color and scale */
+}
+
+.submit-btn:hover {
+    background-color: #005bb5; /* Background color on hover */
+    cursor: pointer; /* Hand cursor on hover */
+    color: white
+}
+
+.submit-btn:active {
+    background-color: #004a99; /* Background color when button is clicked */
+    transform: scale(0.98); /* Slightly shrink button when clicked */
 }
 
 .success {
