@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from "./Form.module.css";
 import statesData from '../data/states.json';
 
@@ -10,6 +10,17 @@ export function Form() {
     const [email, setEmail] = useState('');
     const [state, setState] = useState('');
     const [responseMessage, setResponseMessage] = useState('');
+
+    const fetchUsers = async () => {
+        const res = await fetch('/api/users');
+        const data = await res.json();
+        console.log(data);
+    };
+      
+    useEffect(() => {
+        fetchUsers();
+    }, []);
+      
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -44,6 +55,36 @@ export function Form() {
             setEmail('');
             setState('');
 
+        } catch (error) {
+            console.error('Error submitting data:', error);
+            setResponseMessage('Error submitting data');
+        }
+
+
+        // PRISMA
+        try {
+            const res = await fetch('/api/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(newUser),
+            });
+    
+            if (!res.ok) {
+                throw new Error('Failed to submit user data');
+            }
+    
+            const data = await res.json();
+            setResponseMessage('Thanks for signing the Petition!'); // Display success message
+            console.log('Submitted user data:', data);
+    
+            // Clear form inputs after successful submission
+            setFirstName('');
+            setLastName('');
+            setEmail('');
+            setState('');
+    
         } catch (error) {
             console.error('Error submitting data:', error);
             setResponseMessage('Error submitting data');
