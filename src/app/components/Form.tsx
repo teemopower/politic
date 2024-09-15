@@ -4,12 +4,20 @@ import { useState, useEffect } from 'react';
 import styles from "./Form.module.css";
 import statesData from '../data/states.json';
 
+interface User {
+    firstName: string;
+    lastName: string;
+    email: string;
+    state: string;
+}
+
 export function Form() {
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
-    const [state, setState] = useState('');
-    const [responseMessage, setResponseMessage] = useState('');
+    const [firstName, setFirstName] = useState<string>('');
+    const [lastName, setLastName] = useState<string>('');
+    const [email, setEmail] = useState<string>('');
+    const [state, setState] = useState<string>('');
+    const [responseMessage, setResponseMessage] = useState<string>('');
+    const [prismaData, setPrismaData] = useState<User[]>([]);
 
     const fetchUsers = async () => {
         const res = await fetch('/api/users');

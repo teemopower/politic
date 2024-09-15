@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Trump Vance 2024",
-  description: "Stop the Steal",
+  title: "Vote 2024",
+  description: "",
 };
 
 export default function RootLayout({
