@@ -19,15 +19,15 @@ export function Form() {
     const [responseMessage, setResponseMessage] = useState<string>('');
     const [prismaData, setPrismaData] = useState<User[]>([]);
 
-    const fetchUsers = async () => {
-        const res = await fetch('/api/users');
-        const data = await res.json();
-        console.log(data);
-    };
+    // const fetchUsers = async () => {
+    //     const res = await fetch('/api/users');
+    //     const data = await res.json();
+    //     console.log(data);
+    // };
       
-    useEffect(() => {
-        fetchUsers();
-    }, []);
+    // useEffect(() => {
+    //     fetchUsers();
+    // }, []);
       
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -70,33 +70,32 @@ export function Form() {
 
 
         // PRISMA
-        try {
-            const res = await fetch('/api/users', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(newUser),
-            });
+        // try {
+        //     const res = await fetch('/api/users', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //         },
+        //         body: JSON.stringify(newUser),
+        //     });
     
-            if (!res.ok) {
-                throw new Error('Failed to submit user data');
-            }
+        //     if (!res.ok) {
+        //         throw new Error('Failed to submit user data');
+        //     }
     
-            const data = await res.json();
-            setResponseMessage('Thanks for signing the Petition!'); // Display success message
-            console.log('Submitted user data:', data);
+        //     const data = await res.json();
+        //     setResponseMessage('Thanks for signing the Petition!');
+        //     console.log('Submitted user data:', data);
     
-            // Clear form inputs after successful submission
-            setFirstName('');
-            setLastName('');
-            setEmail('');
-            setState('');
+        //     setFirstName('');
+        //     setLastName('');
+        //     setEmail('');
+        //     setState('');
     
-        } catch (error) {
-            console.error('Error submitting data:', error);
-            setResponseMessage('Error submitting data');
-        }
+        // } catch (error) {
+        //     console.error('Error submitting data:', error);
+        //     setResponseMessage('Error submitting data');
+        // }
     };
 
     return (

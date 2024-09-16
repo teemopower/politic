@@ -7,17 +7,15 @@ export default function Home() {
     <div className={styles["home-container"]}>
       <div className={styles["logo"]}>
         <Image 
-        src="/trump.jpg" 
-        alt="trump" 
+        src="/vibe.webp" 
+        alt="vibes" 
         width={400} 
-        height={200}
+        height={220}
         />
       </div>
       <div className={styles["headline"]}>
-        <p>Kamala Harris Is Trying To <span>Steal The Election.</span></p>
-        <p>Stop The Steal 2024 by Signing the Petition!</p>
+        <p>Sign Up to Rate Vibes</p>
       </div>
-      
       <div className={styles["form"]}>
         <Form />
       </div>
