@@ -31,9 +31,8 @@ export default function Profile() {
         
         getUsers();
 
-    })
+    }, [])
 
-    console.log(users)
     return (
         <>
             <div>
