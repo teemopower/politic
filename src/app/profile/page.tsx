@@ -16,7 +16,7 @@ export default function Profile() {
 
         const getUsers = async () => {
             try {
-                const response = await fetch('');
+                const response = await fetch('https://vote-8v3w.onrender.com');
 
                 if(!response.ok){
                     throw new Error("Failed to get user data");
@@ -37,10 +37,18 @@ export default function Profile() {
     return (
         <>
             <div>
-                <p>First Name</p>
-                <p>Last Name</p>
-                <p>Email</p>
-                <p>State</p>
+                {
+                    users.map(user => (
+                        <>
+                            <p>First Name: {user.firstName}</p>
+                            <p>Last Name: {user.lastName}</p>
+                            <p>Email: {user.email}</p>
+                            <p>State {user.state}</p>
+                        </>
+                    ))
+                
+                }
+                
             </div>
         </>
     )
