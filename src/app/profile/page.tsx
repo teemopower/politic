@@ -16,7 +16,7 @@ export default function Profile() {
 
         const getUsers = async () => {
             try {
-                const response = await fetch('https://vote-8v3w.onrender.com');
+                const response = await fetch('https://vote-8v3w.onrender.com/users');
 
                 if(!response.ok){
                     throw new Error("Failed to get user data");
